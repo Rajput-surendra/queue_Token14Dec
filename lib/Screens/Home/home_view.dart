@@ -40,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getSlider();
-    getFilterApi();
+   // getSlider();
+     getFilterApi();
     referCode();
 
   }
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return getCounterModel == null ?const Center(child: CircularProgressIndicator()) :RefreshIndicator(
       onRefresh: () {
         return Future.delayed(const Duration(seconds: 2),(){
-          getSlider();
+         // getSlider();
           getFilterApi();
 
         });
@@ -129,54 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.black
                   ),),
                 ),
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     CarouselSlider(
-                //         items: getSliderModel?.sliderdata!
-                //             .map(
-                //               (item) => Stack(
-                //               alignment: Alignment.center,
-                //               children: [
-                //                 Padding(
-                //                   padding: const EdgeInsets.all(8.0),
-                //                   child: ClipRRect(
-                //                       borderRadius: BorderRadius.circular(10),
-                //                       child: Container(
-                //                         height: 200,
-                //                         decoration: BoxDecoration(
-                //                             image: DecorationImage(
-                //                                 image: NetworkImage(
-                //                                   "${item.sliderImage}",
-                //                                 ),
-                //                                 fit: BoxFit.fill)),
-                //                       )
-                //                   ),
-                //                 ),
-                //               ]),
-                //         )
-                //             .toList(),
-                //         carouselController: carouselController,
-                //         options: CarouselOptions(
-                //             height: 150,
-                //             scrollPhysics: const BouncingScrollPhysics(),
-                //             autoPlay: true,
-                //             aspectRatio: 1.8,
-                //             viewportFraction: 1,
-                //             onPageChanged: (index, reason) {
-                //               setState(() {
-                //                 _currentPost = index ;
-                //               });
-                //
-                //             })),
-                //     const SizedBox(
-                //       height: 5,
-                //     ),
-                //     Row(mainAxisAlignment: MainAxisAlignment.center,
-                //       children: _buildDots(),),
-                //     // sliderPointers (items , currentIndex),
-                //
-                //   ],),
+
 
                 // getCatListView(controller),
                 //sliderPointers (controller.catList , controller.catCurrentIndex.value ),
@@ -184,52 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Container(
-                    //   color: AppColors.lotteryColor,
-                    //   height: 160,
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.all(8.0),
-                    //     child: Column(
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         const Text(
-                    //           "Today's Token",
-                    //           style: TextStyle(
-                    //               color: AppColors.fntClr,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold),
-                    //         ),
-                    //         const SizedBox(
-                    //           height: 10,
-                    //         ),
-                    //
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
+
                     todayToken()
-                    // Padding(
-                    //   padding: const EdgeInsets.all(0.0),
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: [
-                    //       const Padding(
-                    //         padding: EdgeInsets.only(left: 8),
-                    //         child: Text(
-                    //           "Tomorrow Token",
-                    //           style: TextStyle(
-                    //               color: AppColors.fntClr,
-                    //               fontSize: 18,
-                    //               fontWeight: FontWeight.bold),
-                    //         ),
-                    //       ),
-                    //       const SizedBox(height: 10,),
-                    //       //tomorrowToken()
-                    //
-                    //     ],
-                    //   ),
-                    // ),
-                    // const SizedBox(height: 20,)
+
                   ],
                 )
 
@@ -269,9 +179,8 @@ class _HomeScreenState extends State<HomeScreen> {
       bool status = getData['status'];
       String msg = getData['msg'];
       if (status == true) {
-        getSliderModel = GetSliderModel.fromJson(getData);
         setState(() {
-
+          getSliderModel = GetSliderModel.fromJson(getData);
         });
       } else {
         Fluttertoast.showToast(msg: msg);
@@ -386,8 +295,8 @@ class _HomeScreenState extends State<HomeScreen> {
                            ],
                          ),
                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -635,7 +544,7 @@ counterUI(){
                             tileMode: TileMode.clamp),
                         borderRadius: BorderRadius.circular(10)
                     ),
-                    child: Center(child: const Text("Booking",style: TextStyle(color: AppColors.whit,fontWeight: FontWeight.bold,fontSize: 15),)),
+                    child: Center(child: const Text("Booking History",style: TextStyle(color: AppColors.whit,fontWeight: FontWeight.bold,fontSize: 15),)),
 
                   ),
 

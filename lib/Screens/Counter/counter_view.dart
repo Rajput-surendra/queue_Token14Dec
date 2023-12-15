@@ -35,7 +35,7 @@ class _CounterScreenState extends State<CounterScreen> {
   String? userId;
   getUserId() async {
     userId =  await SharedPre.getStringValue('userId');
-
+print('_____userId_____${userId}_________');
     setState(() {
 
     });
