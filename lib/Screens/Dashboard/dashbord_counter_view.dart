@@ -32,8 +32,9 @@ class _DashBoardCounterScreenState extends State<DashBoardCounterScreen> {
   List <Widget>
   pageList  = [
     HomeScreen(),
+
+    SubscriptionScreen(isbool: true,),
     ProfileScreen(),
-    SubscriptionScreen(isbool: true,)
   ];
 
   // List <Widget>  pageList1  = [

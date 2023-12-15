@@ -73,121 +73,240 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
                   onTap: (){},
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: getTokenListModel!.data! == "" ? Text("Not Tood") : Container(
-                        height: 120,
-                        width: 280,
-                        decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/lotteryback.png"), fit: BoxFit.fill)),
+                    child: getTokenListModel!.data! == "" ? Text("Not Tood") : Card(
+                      child:Padding(
+                        padding: const EdgeInsets.all(5.0),
                         child: Column(
+                          //crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10,top: 12),
-                                  child: Row(
-                                    children: [
-                                      Text("Expected Time:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                      SizedBox(width: 2,),
-                                      Row(
-                                        children: [
-                                          Text("${getTokenListModel!.data![index].time}",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8,top: 6),
-                                  child: Row(
-                                    children: [
-                                      Text("Date:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                      SizedBox(width: 2,),
-                                      Text("${getTokenListModel!.data![index].date!}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                    ],
-                                  ),
-                                )
+                                Text("Name:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                                SizedBox(width: 2,),
+                                Text("${getTokenListModel!.data![index].name}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),),
                               ],
                             ),
                             SizedBox(height: 5,),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Column(
-                                //crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Name:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
-                                          SizedBox(width: 2,),
-                                          Text("${getTokenListModel!.data![index].name}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),),
-                                        ],
-                                      ),
-                                      SizedBox(height: 5,),
-                                      Row(
-                                        children: [
-                                          SizedBox(height: 10,),
-                                          Text("Mobile :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
-                                          SizedBox(width: 2,),
-                                          Text("${getTokenListModel!.data![index].mobile!}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),)
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                        children: [
-                                          SizedBox(height: 5,),
-                                          Text("Current Token:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
-                                          SizedBox(width: 2,height: 5,),
-                                          Container(
-                                            height: 30,
-                                            width: 30,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(50),
-                                              color: AppColors.secondary1,
-                                            ),
-                                            child: Center(child: Text("${getTokenListModel!.data![index].currentToken}",style: TextStyle(color: AppColors.whit),)),
-                                          )
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Mobile :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                                SizedBox(width: 2,),
+                                Text("${getTokenListModel!.data![index].mobile!}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),)
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Date :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                                SizedBox(width: 2,),
+                                Text("${getTokenListModel!.data![index].date!}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),)
+                              ],
+                            ),
 
-                                        ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(height: 5,),
+                                    Text("Current Token:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                                    SizedBox(width: 2,height: 5,),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        color: AppColors.secondary1,
                                       ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 5,),
-                                          Text("My Token :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
-                                          SizedBox(width: 2,height: 5,),
-                                          Container(
-                                            height: 30,
-                                            width: 30,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(50),
-                                              color: AppColors.secondary,
-                                            ),
-                                            child: Center(child: Text("${getTokenListModel!.data![index].tokenNumber}",style: TextStyle(color: AppColors.whit),)),
-                                          )
+                                      child: Center(child: Text("${getTokenListModel!.data![index].currentToken}",style: TextStyle(color: AppColors.whit),)),
+                                    )
 
-                                        ],
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(height: 5,),
+                                    Text("My Token :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                                    SizedBox(width: 2,height: 5,),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        color: AppColors.secondary,
                                       ),
+                                      child: Center(child: Text("${getTokenListModel!.data![index].tokenNumber}",style: TextStyle(color: AppColors.whit),)),
+                                    )
 
-                                    ],
-                                  ),
-                                  SizedBox(height: 10,)
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 5,),
+                                    Text("Expected Time:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                                    SizedBox(width: 2,height: 5,),
+                                    Container(
+                                      height: 30,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: AppColors.primary,
+                                      ),
+                                      child: Center(child: Text("${getTokenListModel!.data![index].time}",style: TextStyle(color: AppColors.whit),)),
+                                    )
 
-                                ],
-                              ),
-                            )
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            SizedBox(height: 10,)
+
                           ],
-                        )
-                    ),
+                        ),
+                      )
+                    )
+
+
+                    // Container(
+                    //     height: 120,
+                    //     width: 280,
+                    //     decoration: const BoxDecoration(
+                    //         image: DecorationImage(
+                    //             image: AssetImage("assets/images/lotteryback.png"), fit: BoxFit.fill)),
+                    //     child: Column(
+                    //       children: [
+                    //         Row(
+                    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //           children: [
+                    //             Padding(
+                    //               padding: const EdgeInsets.only(left: 10,top: 12),
+                    //               child: Row(
+                    //                 children: [
+                    //                   Text("Expected Time:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                    //                   SizedBox(width: 2,),
+                    //                   Row(
+                    //                     children: [
+                    //                       Text("${getTokenListModel!.data![index].time}",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                    //                     ],
+                    //                   )
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //             Padding(
+                    //               padding: const EdgeInsets.only(right: 8,top: 6),
+                    //               child: Row(
+                    //                 children: [
+                    //                   Text("Date:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                    //                   SizedBox(width: 2,),
+                    //                   Text("${getTokenListModel!.data![index].date!}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
+                    //                 ],
+                    //               ),
+                    //             )
+                    //           ],
+                    //         ),
+                    //         SizedBox(height: 5,),
+                    //         Padding(
+                    //           padding: const EdgeInsets.all(5.0),
+                    //           child: Column(
+                    //             //crossAxisAlignment: CrossAxisAlignment.start,
+                    //             children: [
+                    //               Row(
+                    //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //                 children: [
+                    //                   Row(
+                    //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //                     children: [
+                    //                       Text("Name:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                    //                       SizedBox(width: 2,),
+                    //                       Text("${getTokenListModel!.data![index].name}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),),
+                    //                     ],
+                    //                   ),
+                    //                   SizedBox(height: 5,),
+                    //                   Row(
+                    //                     children: [
+                    //                       SizedBox(height: 10,),
+                    //                       Text("Mobile :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                    //                       SizedBox(width: 2,),
+                    //                       Text("${getTokenListModel!.data![index].mobile!}",style: TextStyle(color: AppColors.fntClr,fontSize: 12,fontWeight: FontWeight.bold),)
+                    //                     ],
+                    //                   ),
+                    //                 ],
+                    //               ),
+                    //               Row(
+                    //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //                 children: [
+                    //                   Column(
+                    //                     crossAxisAlignment: CrossAxisAlignment.center,
+                    //                     children: [
+                    //                       SizedBox(height: 5,),
+                    //                       Text("Current Token:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                    //                       SizedBox(width: 2,height: 5,),
+                    //                       Container(
+                    //                         height: 30,
+                    //                         width: 30,
+                    //                         decoration: BoxDecoration(
+                    //                           borderRadius: BorderRadius.circular(50),
+                    //                           color: AppColors.secondary1,
+                    //                         ),
+                    //                         child: Center(child: Text("${getTokenListModel!.data![index].currentToken}",style: TextStyle(color: AppColors.whit),)),
+                    //                       )
+                    //
+                    //                     ],
+                    //                   ),
+                    //                   Column(
+                    //                     crossAxisAlignment: CrossAxisAlignment.center,
+                    //                     children: [
+                    //                       SizedBox(height: 5,),
+                    //                       Text("My Token :",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                    //                       SizedBox(width: 2,height: 5,),
+                    //                       Container(
+                    //                         height: 30,
+                    //                         width: 30,
+                    //                         decoration: BoxDecoration(
+                    //                           borderRadius: BorderRadius.circular(50),
+                    //                           color: AppColors.secondary,
+                    //                         ),
+                    //                         child: Center(child: Text("${getTokenListModel!.data![index].tokenNumber}",style: TextStyle(color: AppColors.whit),)),
+                    //                       )
+                    //
+                    //                     ],
+                    //                   ),
+                    //                   Column(
+                    //                     crossAxisAlignment: CrossAxisAlignment.start,
+                    //                     children: [
+                    //                       SizedBox(height: 5,),
+                    //                       Text("Expected Time:",style: TextStyle(color: AppColors.fntClr,fontSize: 12),),
+                    //                       SizedBox(width: 2,height: 5,),
+                    //                       Container(
+                    //                         height: 30,
+                    //                         width: 80,
+                    //                         decoration: BoxDecoration(
+                    //                           borderRadius: BorderRadius.circular(10),
+                    //                           color: AppColors.primary,
+                    //                         ),
+                    //                         child: Center(child: Text("${getTokenListModel!.data![index].time}",style: TextStyle(color: AppColors.whit),)),
+                    //                       )
+                    //
+                    //                     ],
+                    //                   ),
+                    //
+                    //                 ],
+                    //               ),
+                    //               SizedBox(height: 10,)
+                    //
+                    //             ],
+                    //           ),
+                    //         )
+                    //       ],
+                    //     )
+                    // ),
                   ),
                 );
               }
@@ -207,7 +326,7 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
     request.fields.addAll({
       'user_id':userId.toString()
     });
-   print('____request.fields______${request.fields}_________');
+
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
 

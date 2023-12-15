@@ -139,8 +139,9 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     apiBaseHelper.postAPICall(getSubscriptionsAPI, param).then((getData) {
       String msg = getData['message'];
       setState(() {
+        getSubscriptionModel = GetSubscriptionModel.fromJson(getData);
       });
-      getSubscriptionModel = GetSubscriptionModel.fromJson(getData);
+
       Fluttertoast.showToast(msg: msg);
     });
   }
